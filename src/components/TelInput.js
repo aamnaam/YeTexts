@@ -7,6 +7,8 @@ import ArrowForwardIosSharpIcon from "@material-ui/icons/ArrowForwardIosSharp";
 import { Link } from "react-router-dom";
 import "react-phone-input-2/lib/material.css";
 
+import axios from "axios";
+
 const useStyles = makeStyles({
   field: {
     marginTop: 10,
@@ -23,8 +25,21 @@ const TelInput = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const applyingUser = { name, phone };
-    console.log(applyingUser);
+    if (name !== "" && phone !== "") {
+      const applyingUser = { name: name, WAid: phone };
+      axios
+        .post("/api/register", applyingUser)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+
+      console.log("New user request sent");
+    } else {
+      alert("Cannot be empty");
+    }
   };
 
   return (
