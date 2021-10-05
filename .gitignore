@@ -1,5 +1,3 @@
-.env
-
 # Frontend dependencies
 node_modules
 .pnp
@@ -24,4 +22,6 @@ venv
 
 # Editors
 .vscode/
-*/.idea/
+.idea/
+
+.env
