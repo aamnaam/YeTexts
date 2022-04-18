@@ -1,29 +1,28 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import TelInput from "./components/TelInput";
 import About from "./components/About";
 import Home from "./components/Home";
 
 function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-      </Switch>
-      <Switch>
-        <Route exact path="/about">
-          <About />
-        </Route>
-      </Switch>
-      <Switch>
-        <Route exact path="/register">
-          <TelInput />
-        </Route>
-      </Switch>
-      {/* <TelInput /> */}
-    </Router>
-  );
+	return (
+		<Router>
+			<Route>
+				<Route exact path="/">
+					<Home />
+				</Route>
+			</Route>
+			<Route>
+				<Route exact path="/about">
+					<About />
+				</Route>
+			</Route>
+			<Route>
+				<Route exact path="/register">
+					<TelInput />
+				</Route>
+			</Route>
+		</Router>
+	);
 }
 
 export default App;
